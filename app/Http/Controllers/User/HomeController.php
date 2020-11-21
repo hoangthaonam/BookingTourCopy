@@ -11,4 +11,8 @@ class HomeController extends Controller
     {
         return view('User.Home');
     }
+    public function store()
+    {
+        # code
+    }
 }

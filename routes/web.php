@@ -21,7 +21,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 });
 Route::group(['namespace'=>'User'],function(){
     Route::get('login','LoginController@index')->name('showlogin');
-    Route::post('login','LoginController@login')->name('login'); 
+    Route::post('login','LoginController@login')->name('login');
+    Route::get('register','RegisterController@index')->name('showregister'); 
+    Route::post('register','RegisterController@store')->name('register'); 
     Route::get('home','HomeController@index')->name('home.index');
     Route::get('logout','LoginController@logout')->name('logout');
 });
