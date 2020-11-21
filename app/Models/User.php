@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -63,5 +64,10 @@ class User extends Authenticatable
     public function likes()
     {
         return $this->hasMany(Like::class, 'user_id', 'user_id');
+    }
+
+    public function isAdmin()
+    {
+        return Auth::user()->role == config('app.admin_role');
     }
 }
