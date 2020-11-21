@@ -17,6 +17,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     Route::group(['middleware'=>'check_admin'],function(){
         Route::get('logout','LoginController@logout')->name('admin.logout');
         Route::get('/','DashboardController@index')->name('admin.dashboard');
+        Route::resource('/category','CategoryController');
+        Route::get('/category/showDelete/{id}','CategoryController@showDelete');
     });
 });
 
