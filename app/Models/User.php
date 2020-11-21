@@ -30,6 +30,8 @@ class User extends Authenticatable
         'image',
         'role',
         'status',
+        'provider', 
+        'provider_id',
     ];
 
     /**

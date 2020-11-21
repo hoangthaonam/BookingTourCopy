@@ -19,11 +19,16 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
         Route::get('/','DashboardController@index')->name('admin.dashboard');
     });
 });
+
 Route::group(['namespace'=>'User'],function(){
     Route::get('login','LoginController@index')->name('showlogin');
     Route::post('login','LoginController@login')->name('login');
     Route::get('register','RegisterController@index')->name('showregister'); 
     Route::post('register','RegisterController@store')->name('register'); 
+    
     Route::get('home','HomeController@index')->name('home.index');
     Route::get('logout','LoginController@logout')->name('logout');
+
+    Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+    Route::get('/callback/{provider}', 'SocialController@callback');
 });

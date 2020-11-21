@@ -12,7 +12,10 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('User.Login');
+        if(Auth::check()){
+            return redirect()->route('home.index');
+        }
+        return view('Admin.Login');
     }
 
     public function login(LoginRequest $request)

@@ -12,6 +12,9 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if(Auth::check() && Auth::user()->isAdmin()){
+            return redirect()->route('admin.dashboard');
+        }
         return view('Admin.Login');
     }
 
