@@ -1,11 +1,5 @@
-<h1>Homepage</h1>
-@auth
-    <a href="{{route('logout')}}">Logout</a>
-@endauth
-@guest
-    <a href="{{route('showlogin')}}">Login</a>
-@endguest
 <h1>Tour</h1>
+<a href="{{route('tour.create')}}">Create tour</a>
 <br/>
 @foreach ($tours as $tour)
     <label for="name">Name: </label> {{$tour->name}}
@@ -32,8 +26,11 @@
     <br/>
     <label for="category">Category:</label> {{$tour->category->name}}
     <br/>
-    @auth
-    <a href="">Write Review</a>
-    @endauth
+    <a href="{{route('tour.edit',[$tour->tour_id])}}">Edit</a>
+    <form action="{{route('tour.destroy',[$tour->tour_id])}}" method="POST">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <input type="submit" value="Delete">
+    </form>
     <hr>
 @endforeach

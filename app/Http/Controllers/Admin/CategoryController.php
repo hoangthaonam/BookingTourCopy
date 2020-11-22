@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use App\Component\CategoryRecursive;
 
 class CategoryController extends Controller
 {
@@ -16,10 +17,14 @@ class CategoryController extends Controller
      */
     protected $html = '';
 
+    public function __construct() {
+        $categoryRecursive = new CategoryRecursive();
+        $this->html = $categoryRecursive->recursive();
+    }
 
     public function index()
     {
-        $data = $this->recursive();
+        $data = $this->html;
         return view('Admin.Category.Category',compact('data'));
     }
 
