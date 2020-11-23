@@ -33,7 +33,8 @@
     <label for="category">Category:</label> {{$tour->category->name}}
     <br/>
     @auth
-    <a href="">Write Review</a>
+    <a href="{{route('reviews.create',[$tour->tour_id])}}">Write Review</a>
     @endauth
+    <a href="{{route('reviews.listReviews',[$tour->tour_id])}}">List Review</a>
     <hr>
 @endforeach
