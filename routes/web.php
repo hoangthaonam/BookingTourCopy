@@ -40,7 +40,7 @@ Route::group(['namespace'=>'User'],function(){
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/callback/{provider}', 'SocialController@callback');
 
-    Route::middleware('auth')->resource('review','ReviewController');
+    Route::resource('review','ReviewController');
     Route::get('/list/reviews/{tour_id}','ReviewController@listReviews')->name('reviews.listReviews');
     Route::get('reviews/create/{tour_id}','ReviewController@createReviews')->middleware('auth')->name('reviews.create');
 });
