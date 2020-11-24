@@ -20,21 +20,11 @@
     <br/>
     <label for="price">Price:</label> {{$tour->price}}
     <br/>
-    <label for="hotel_star">Hotel_star:</label> {{$tour->hotel_star}}
     <br/>
-    <label for="des">Des:</label> 
-    <br/>
-        {{$tour->des}}
-    <br/>
-    <label for="quantity_people">Quantity_people:</label> {{$tour->quantity_people}}
-    <br/>
-    <label for="booking_number">Booking_number:</label> {{$tour->booking_number}}
-    <br/>
-    <label for="category">Category:</label> {{$tour->category->name}}
-    <br/>
+    <a href="{{route('tour.show',[$tour->tour_id])}}">Details</a>
     @auth
     <a href="{{route('reviews.create',[$tour->tour_id])}}">Write Review</a>
     @endauth
-    <a href="{{route('reviews.listReviews',[$tour->tour_id])}}">List Review</a>
+    <a href="{{route('reviews.listReviews',[$tour->tour_id])}}">View Review</a>
     <hr>
 @endforeach

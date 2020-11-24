@@ -43,4 +43,9 @@ Route::group(['namespace'=>'User'],function(){
     Route::resource('review','ReviewController');
     Route::get('/list/reviews/{tour_id}','ReviewController@listReviews')->name('reviews.listReviews');
     Route::get('reviews/create/{tour_id}','ReviewController@createReviews')->middleware('auth')->name('reviews.create');
+    Route::resource('tour','TourController');
+
+    Route::post('comment/create','CommentController@create')->middleware('auth')->name('comment.create');
+    Route::post('comment/update','CommentController@update')->middleware('auth')->name('comment.update');
+    Route::delete('comment/destroy','CommentController@destroy')->middleware('auth')->name('comment.destroy');
 });

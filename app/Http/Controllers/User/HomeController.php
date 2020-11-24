@@ -13,8 +13,4 @@ class HomeController extends Controller
         $tours = Tour::with('category')->get();
         return view('User.Home',compact('tours'));
     }
-    public function store()
-    {
-        # code
-    }
 }
